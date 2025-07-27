@@ -3,7 +3,7 @@ services:
     name: my-first-django
     runtime: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn myfirstdjango.wsgi:application
+    startCommand: gunicorn my-first-django.wsgi:application
     envVars:
       - key: DJANGO_SETTINGS_MODULE
-        value: myfirstdjango.settings
+        value: my-first-django.settings
