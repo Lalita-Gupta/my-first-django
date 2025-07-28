@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechFlow - Modern Web Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.24/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'gradient-x': 'gradient-x 15s ease infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        'gradient-x': {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen bg-base-100 font-sans antialiased">
+    <!-- Navigation -->
+    <div class="navbar bg-base-200/90 backdrop-blur-lg fixed top-0 z-50 shadow-lg border-b border-base-300">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden" aria-label="Toggle menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"></path>
+                    </svg>
+                </div>
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-lg bg-base-100 rounded-box w-52 border border-base-300">
+                    <li><a href="#home" class="hover:text-primary transition-colors">Home</a></li>
+                    <li><a href="#features" class="hover:text-primary transition-colors">Features</a></li>
+                    <li><a href="#demo" class="hover:text-primary transition-colors">Demo</a></li>
+                    <li><a href="#contact" class="hover:text-primary transition-colors">Contact</a></li>
+                </ul>
+            </div>
+            <a href="#home" class="btn btn-ghost text-xl font-bold gradient-text hover:scale-105 transition-transform">
+                <span class="text-primary">Tech</span><span class="text-secondary">Flow</span>
+            </a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1 gap-1">
+                <li><a href="#home" class="btn btn-ghost hover:btn-primary transition-all duration-300">Home</a></li>
+                <li><a href="#features" class="btn btn-ghost hover:btn-primary transition-all duration-300">Features</a></li>
+                <li><a href="#demo" class="btn btn-ghost hover:btn-primary transition-all duration-300">Demo</a></li>
+                <li><a href="#contact" class="btn btn-ghost hover:btn-primary transition-all duration-300">Contact</a></li>
+            </ul>
+        </div>
+        <div class="navbar-end gap-2">
+            <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle hover:btn-primary transition-all duration-300" aria-label="Change theme">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                </div>
+                <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow-lg bg-base-200 rounded-box w-40 border border-base-300">
+                    <li><a onclick="setTheme('dark')" class="hover:text-primary transition-colors">🌙 Dark</a></li>
+                    <li><a onclick="setTheme('light')" class="hover:text-primary transition-colors">☀️ Light</a></li>
+                    <li><a onclick="setTheme('cyberpunk')" class="hover:text-primary transition-colors">🔮 Cyber</a></li>
+                    <li><a onclick="setTheme('synthwave')" class="hover:text-primary transition-colors">🌈 Synth</a></li>
+                    <li><a onclick="setTheme('forest')" class="hover:text-primary transition-colors">🌲 Forest</a></li>
+                </ul>
+            </div>
+            <button class="btn btn-primary btn-sm hover:btn-secondary transition-all duration-300 shadow-lg hover:shadow-xl">
+                Get Started
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero min-h-screen animated-bg pt-16">
+        <div class="hero-content text-center">
+            <div class="max-w-4xl animate-fade-in-up">
+                <div class="mockup-code bg-base-300/90 backdrop-blur-sm mb-8 text-left max-w-lg mx-auto shadow-xl border border-base-300">
+                    <pre data-prefix="$" class="text-success"><code>npm create astro@latest</code></pre>
+                    <pre data-prefix=">" class="text-warning"><code>Installing Tailwind CSS...</code></pre>
+                    <pre data-prefix=">" class="text-info"><code>Adding DaisyUI components...</code></pre>
+                    <pre data-prefix="✓" class="text-success"><code>Ready to build amazing UIs!</code></pre>
+                </div>
+                
+                <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+                    Build <span class="text-primary animate-pulse-slow">Fast</span>, 
+                    <span class="text-secondary animate-bounce-slow">Beautiful</span> Websites
+                </h1>
+                
+                <p class="text-xl mb-8 opacity-90 max-w-2xl mx-auto leading-relaxed">
+                    Harness the power of Astro's lightning-fast performance, Tailwind's utility-first styling, 
+                    and DaisyUI's beautiful components to create stunning web experiences.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <button class="btn btn-primary btn-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105" onclick="scrollToSection('features')">
+                        Explore Features
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                        </svg>
+                    </button>
+                    <button class="btn btn-outline btn-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105" onclick="scrollToSection('demo')">
+                        View Demo
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Stats -->
+                <div class="stats shadow-lg mt-12 bg-base-200/80 backdrop-blur-sm border border-base-300">
+                    <div class="stat">
+                        <div class="stat-figure text-primary">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path>
+                            </svg>
+                        </div>
+                        <div class="stat-title">Downloads</div>
+                        <div class="stat-value text-primary">1M+</div>
+                        <div class="stat-desc">Monthly installs</div>
+                    </div>
+                    
+                    <div class="stat">
+                        <div class="stat-figure text-secondary">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"></path>
+                            </svg>
+                        </div>
+                        <div class="stat-title">GitHub Stars</div>
+                        <div class="stat-value text-secondary">50K+</div>
+                        <div class="stat-desc">And growing</div>
+                    </div>
+                    
+                    <div class="stat">
+                        <div class="stat-figure text-accent">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div class="stat-title">Performance</div>
+                        <div class="stat-value text-accent">100</div>
+                        <div class="stat-desc">Lighthouse score</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-base-200/50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="badge badge-primary badge-lg mb-4">Tech Stack</div>
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4">Powerful Technologies</h2>
+                <p class="text-xl opacity-80 max-w-2xl mx-auto">Modern tools that work seamlessly together to create exceptional web experiences</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border border-base-300 group">
+                    <div class="card-body text-center p-8">
+                        <div class="avatar mb-4">
+                            <div class="w-20 rounded-full bg-gradient-to-br from-primary/20 to-primary/40 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                <span class="text-3xl">🚀</span>
+                            </div>
+                        </div>
+                        <h3 class="card-title justify-center text-primary text-2xl mb-2">Astro Framework</h3>
+                        <p class="text-base-content/80 mb-4 leading-relaxed">
+                            Zero JavaScript by default, lightning-fast performance, and modern developer experience with islands architecture.
+                        </p>
+                        <div class="card-actions justify-center flex-wrap gap-2">
+                            <div class="badge badge-primary shadow-sm">Fast</div>
+                            <div class="badge badge-outline">Modern</div>
+                            <div class="badge badge-ghost">Islands</div>
+                        </div>
+                        <div class="mt-4">
+                            <div class="radial-progress text-primary" style="--value:95;" role="progressbar">95%</div>
+                            <p class="text-xs mt-2 opacity-60">Performance Score</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border border-base-300 group">
+                    <div class="card-body text-center p-8">
+                        <div class="avatar mb-4">
+                            <div class="w-20 rounded-full bg-gradient-to-br from-secondary/20 to-secondary/40 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                <span class="text-3xl">🎨</span>
+                            </div>
+                        </div>
+                        <h3 class="card-title justify-center text-secondary text-2xl mb-2">Tailwind CSS</h3>
+                        <p class="text-base-content/80 mb-4 leading-relaxed">
+                            Utility-first CSS framework for rapidly building custom user interfaces with complete design freedom.
+                        </p>
+                        <div class="card-actions justify-center flex-wrap gap-2">
+                            <div class="badge badge-secondary shadow-sm">Flexible</div>
+                            <div class="badge badge-outline">Responsive</div>
+                            <div class="badge badge-ghost">Utility-first</div>
+                        </div>
+                        <div class="mt-4">
+                            <div class="radial-progress text-secondary" style="--value:90;" role="progressbar">90%</div>
+                            <p class="text-xs mt-2 opacity-60">Developer Experience</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border border-base-300 group">
+                    <div class="card-body text-center p-8">
+                        <div class="avatar mb-4">
+                            <div class="w-20 rounded-full bg-gradient-to-br from-accent/20 to-accent/40 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                <span class="text-3xl">🌸</span>
+                            </div>
+                        </div>
+                        <h3 class="card-title justify-center text-accent text-2xl mb-2">DaisyUI</h3>
+                        <p class="text-base-content/80 mb-4 leading-relaxed">
+                            Beautiful, semantic component library built on Tailwind CSS with multiple themes and accessibility.
+                        </p>
+                        <div class="card-actions justify-center flex-wrap gap-2">
+                            <div class="badge badge-accent shadow-sm">Beautiful</div>
+                            <div class="badge badge-outline">Components</div>
+                            <div class="badge badge-ghost">Accessible</div>
+                        </div>
+                        <div class="mt-4">
+                            <div class="radial-progress text-accent" style="--value:88;" role="progressbar">88%</div>
+                            <p class="text-xs mt-2 opacity-60">Design Quality</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Features Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 max-w-6xl mx-auto">
+                <div class="text-center p-6 bg-base-100 rounded-lg shadow-md border border-base-300 hover:shadow-lg transition-all duration-300">
+                    <div class="text-2xl mb-2">⚡</div>
+                    <h4 class="font-semibold mb-1">Lightning Fast</h4>
+                    <p class="text-sm opacity-70">Sub-second load times</p>
+                </div>
+                <div class="text-center p-6 bg-base-100 rounded-lg shadow-md border border-base-300 hover:shadow-lg transition-all duration-300">
+                    <div class="text-2xl mb-2">📱</div>
+                    <h4 class="font-semibold mb-1">Mobile First</h4>
+                    <p class="text-sm opacity-70">Responsive by design</p>
+                </div>
+                <div class="text-center p-6 bg-base-100 rounded-lg shadow-md border border-base-300 hover:shadow-lg transition-all duration-300">
+                    <div class="text-2xl mb-2">🎯</div>
+                    <h4 class="font-semibold mb-1">SEO Optimized</h4>
+                    <p class="text-sm opacity-70">Built for search engines</p>
+                </div>
+                <div class="text-center p-6 bg-base-100 rounded-lg shadow-md border border-base-300 hover:shadow-lg transition-all duration-300">
+                    <div class="text-2xl mb-2">♿</div>
+                    <h4 class="font-semibold mb-1">Accessible</h4>
+                    <p class="text-sm opacity-70">WCAG compliant</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section id="demo" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="badge badge-secondary badge-lg mb-4">Interactive</div>
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4">Live Components Demo</h2>
+                <p class="text-xl opacity-80 max-w-2xl mx-auto">Experience DaisyUI components in action with real interactions</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+                <div class="space-y-8">
+                    <div class="alert alert-info shadow-lg border border-info/20">
+                        <svg class="stroke-current shrink-0 w-6 h-6" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span>Click the buttons below to see DaisyUI magic in action!</span>
+                    </div>
+                    
+                    <div class="card bg-base-100 shadow-lg border border-base-300">
+                        <div class="card-body">
+                            <h3 class="card-title mb-4">Interactive Buttons</h3>
+                            <div class="flex flex-wrap gap-3">
+                                <button class="btn btn-primary" onclick="showToast('primary', 'Primary button clicked!')">
+                                    Primary
+                                </button>
+                                <button class="btn btn-secondary" onclick="showToast('secondary', 'Secondary style activated!')">
+                                    Secondary
+                                </button>
+                                <button class="btn btn-accent" onclick="showToast('accent', 'Accent color engaged!')">
+                                    Accent
+                                </button>
+                                <button class="btn btn-success" onclick="showModal()">
+                                    Open Modal
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-base-100 shadow-lg border border-base-300">
+                        <div class="card-body">
+                            <h3 class="card-title mb-4">Form Controls</h3>
+                            <div class="space-y-4">
+                                <div class="form-control">
+                                    <label class="label cursor-pointer justify-start gap-4">
+                                        <input type="checkbox" class="toggle toggle-primary" checked onchange="toggleFeature(this)" />
+                                        <span class="label-text">Enable dark mode</span>
+                                    </label>
+                                </div>
+                                
+                                <div class="form-control">
+                                    <label class="label">
+                                        <span class="label-text">Performance level</span>
+                                        <span class="label-text-alt" id="range-value">50%</span>
+                                    </label>
+                                    <input type="range" min="0" max="100" value="50" class="range range-secondary" onchange="updateRangeValue(this)" />
+                                    <div class="w-full flex justify-between text-xs px-2 mt-1">
+                                        <span>Slow</span>
+                                        <span>Fast</span>
+                                        <span>Lightning</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-control">
+                                    <label class="label">
+                                        <span class="label-text">Choose your framework</span>
+                                    </label>
+                                    <select class="select select-bordered w-full" onchange="frameworkChanged(this)">
+                                        <option disabled selected>Pick your favorite</option>
+                                        <option value="astro">Astro</option>
+                                        <option value="react">React</option>
+                                        <option value="vue">Vue</option>
+                                        <option value="svelte">Svelte</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="mockup-browser border bg-base-300 shadow-xl">
+                        <div class="mockup-browser-toolbar">
+                            <div class="input bg-base-200">https://your-awesome-site.com</div>
+                        </div>
+                        <div class="px-4 py-8 bg-base-200">
+                            <div class="stats stats-vertical lg:stats-horizontal shadow w-full">
+                                <div class="stat">
+                                    <div class="stat-title">Performance</div>
+                                    <div class="stat-value text-primary" id="perf-score">100</div>
+                                    <div class="stat-desc">Lighthouse score</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-title">Bundle Size</div>
+                                    <div class="stat-value text-secondary">0KB</div>
+                                    <div class="stat-desc">JS by default</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-title">Load Time</div>
+                                    <div class="stat-value text-accent">0.5s</div>
+                                    <div class="stat-desc">First paint</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mockup-phone border-primary">
+                        <div class="camera"></div>
+                        <div class="display">
+                            <div class="artboard artboard-demo phone-1 bg-base-200">
+                                <div class="p-4 space-y-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="avatar">
+                                            <div class="w-12 rounded-full bg-primary text-primary-content flex items-center justify-center">
+                                                <span class="text-lg">🚀</span>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="font-bold">TechFlow Mobile</div>
+                                            <div class="text-sm opacity-70">Lightning Fast</div>
+                                        </div>
+                                    </div>
+                                    <div class="card bg-base-100 shadow-sm">
+                                        <div class="card-body p-4">
+                                            <p class="text-sm">Mobile-first design that looks great on any device!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-base-200/50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="badge badge-accent badge-lg mb-4">Get In Touch</div>
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4">Ready to Build?</h2>
+                <p class="text-xl opacity-80 max-w-2xl mx-auto">Let's create something amazing together with modern web technologies</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <div class="space-y-8">
+                    <div class="card bg-base-100 shadow-lg border border-base-300">
+                        <div class="card-body">
+                            <h3 class="card-title text-2xl mb-6">Send us a message</h3>
+                            <form class="space-y-4" onsubmit="handleSubmit(event)">
+                                <div class="form-control">
+                                    <label class="label">
+                                        <span class="label-text">Your Name</span>
+                                    </label>
+                                    <input type="text" placeholder="John Doe" class="input input-bordered w-full" required />
+                                </div>
+                                <div class="form-control">
+                                    <label class="label">
+                                        <span class="label-text">Email</span>
+                                    </label>
+                                    <input type="email" placeholder="john@example.com" class="input input-bordered w-full" required />
+                                </div>
+                                <div class="form-control">
+                                    <label class="label">
+                                        <span class="label-text">Message</span>
+                                    </label>
+                                    <textarea class="textarea textarea-bordered h-24" placeholder="Tell us about your project..." required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-full">
+                                    Send Message
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="grid gap-6">
+                        <div class="card bg-base-100 shadow-lg border border-base-300">
+                            <div class="card-body">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Email</h4>
+                                        <p class="text-sm opacity-70">hello@techflow.dev</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card bg-base-100 shadow-lg border border-base-300">
+                            <div class="card-body">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2
